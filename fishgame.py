@@ -23,7 +23,7 @@ shark_img = pygame.image.load("shark.png")
 p_x = 0
 p_y = 0
 
-p_speed = 3
+p_speed = 9
 
 p_hitbox = pygame.Rect(0, 0, 50, 25)
 
@@ -31,6 +31,8 @@ f_x = random.randint(0,1000)
 f_y = random.randint(0, 800)
 
 all_food = [Food(), Food(), Food()]
+
+shark = Shark(900, 100)
 
 font = pygame.font.SysFont("timesnewroman", 22)
 
@@ -80,15 +82,7 @@ while running:
             all_food.remove(food)
             all_food.append(Food())
 
-    scoreTxt = font.render("Score: " + str(score), True, "white")
-    screen.blit(scoreTxt, (20, 850))
-    pygame.display.update()
-
-    shark = Shark(900, 100)
-    def shark_update():
-        shark.update(p_hitbox, screen)
-    t = Timer(1, shark_update())
-    t.start()
+    shark.update(p_hitbox, screen)
     # while True:
     #     shark.update(p_hitbox, screen)
     #     time.sleep(1)
