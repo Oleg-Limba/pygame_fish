@@ -79,6 +79,8 @@ while running:
             score += food.points
             if food.trait == "Speed":
                 p_speed = 10
+            else
+                p_invisiblity = 10
             all_food.remove(food)
             all_food.append(Food())
 
@@ -89,4 +91,5 @@ while running:
     
     scoreTxt = font.render("Score: " + str(score), True, "white")
     screen.blit(scoreTxt, (20, 850))
+
     pygame.display.update()
